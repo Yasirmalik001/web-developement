@@ -1,0 +1,58 @@
+:root {
+  --base: #cfcfcf;
+  --text: #212121;
+}
+@font-face {
+  font-family: yasir;
+  src: url(/bootstrap-icons-1.11.3/font/fonts/bootstrap-icons.woff);
+}
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@media (prefers-color-scheme: dark) {
+  :root {
+    --base: #212121;
+    --text: #cfcfcf;
+  }
+}
+
+html {
+  color-scheme: dark light;
+}
+/* CSS-only solution using :has()
+     the JS version is commented out lower down */
+:root:has(#theme [value="light"]:checked) {
+  color-scheme: light;
+  --base: #cfcfcf;
+  --text: #212121;
+}
+
+:root:has(#theme [value="dark"]:checked) {
+  color-scheme: dark;
+  --base: #212121;
+  --text: #cfcfcf;
+}
+
+body {
+  color: var(--text);
+  background-color: var(--base);
+  font-family: yasir;
+}
+
+.with-scrollbar {
+  height: 300px;
+  border: 5px solid hsl(0 0 50% / 0.5);
+  overflow-y: scroll;
+}
+
+/* Use the two selectors below if you want the JS version
+  [data-theme="☀️"] {
+    color-scheme: light;
+    --base: #cfcfcf;
+    --text: #212121;
+  }
+  
+  [data-theme="🌑"] {
+    color-scheme: dark;
+    --base: #212121;
+    --text: #cfcfcf;
+  } */
